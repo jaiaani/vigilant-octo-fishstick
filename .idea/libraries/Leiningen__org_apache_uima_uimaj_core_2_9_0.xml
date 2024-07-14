@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: org.apache.uima/uimaj-core:2.9.0">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/uima/uimaj-core/2.9.0/uimaj-core-2.9.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

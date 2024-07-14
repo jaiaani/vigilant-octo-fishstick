@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>{{title}}{% block subtitle %}{% endblock %}</title>
+    {% block meta %}
+    <meta name="description" content="{{description}}">
+    <meta name="keywords" content="">
+    {% endblock %}
+    <link rel="canonical" href="{{site-url}}{{uri}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+    {% style "css/screen.css" %}
+</head>
+<body>
+
+<section class="page-base">
+    <div class="bg-div">
+    </div>
+    <div class="main-page">
+        <nav class="summary">
+            <ul>
+                <li class="group item-1">
+                    <div class="home-icon">
+                    </div>
+                    <div class="item-name-box">
+                        <p {% if home %} class="active item-name" {% endif %}><a href="{{index-uri}}">Home</a></p>
+                    </div>
+                </li>
+                <li class="group item-2">
+
+                    <div class="squirrel-icon">
+                    </div>
+                    <div class="item-name-box">
+                        {% for nav-page in navbar-pages %}
+                        <p {%ifequal page.uri nav-page.uri %} class="active item-name" {% endifequal %}>
+                            <a href="{{nav-page.uri}}">{{nav-page.title}}</a> </p>
+                        {% endfor %}
+                    </div>
+                </li>
+                <li class="group item-3">
+
+                    <div class="book-icon">
+                    </div>
+                    <div class="item-name-box">
+                        <p {% if archives %} class="active item-name" {% endif %}><a href="{{archives-uri}}">Archives</a></p>
+                    </div>
+                </li>
+                <li class="group item-4">
+
+                    <div class="phone-icon">
+                    </div>
+                    <div class="item-name-box">
+                        <p class="item-name">Contact me</p>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <header class="header-container">
+            <div class="sparkles">
+            </div>
+            <div class="group leaves-column">
+                <div class="leaf-1">
+                </div>
+                <div class="leaf-2">
+                </div>
+                <div class="leaf-3">
+                </div>
+            </div>
+
+            <div class="header-title-container">
+                <p class="header-title"> My blog name ... </p>
+            </div>
+        </header>
+        <section class="profile-container">
+            <div class="profile-pic"></div>
+            <div class="profile-text-container">
+                <p class="profile-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt quam vitae nunc elementum, sed viverra orci vulputate. Nulla vel mollis arcu. Sed pretium dapibus enim, vel finibus urna pulvinar a. </span></p>
+            </div>
+            <div class="github-text-box">
+                <a class="github" href="https://github.com/jaiaani">Github</a>
+            </div>
+        </section>
+        <div class="page-main-content">
+            <div class="content">
+                {% block content %}
+                {% endblock %}
+            </div>
+
+        </div>
+
+        <div class="visitors-container">
+            <div class="visitors-text">
+                # Visitors
+            </div>
+            <div class="visitors-count">
+                <p class="number">000</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+{% script "js/highlight.pack.js" %}
+<script>hljs.initHighlightingOnLoad();</script>
+{% if post.klipse %} {{post.klipse|safe}} {% endif %}
+{% if page.klipse %} {{page.klipse|safe}} {% endif %}
+</body>
+</html>
